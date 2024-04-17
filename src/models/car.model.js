@@ -1,49 +1,46 @@
 import mongoose from "mongoose";
 
-const userSchema = mongoose.Schema(
+const carSchema = mongoose.Schema(
   {
-    username: {
-      type: String,
+    vendorId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: true,
-      unique: true,
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    firstName: {
+    brand: {
       type: String,
       required: true,
     },
-    lastName: {
+    model: {
       type: String,
       required: true,
     },
-    address: {
+    licensePlateNumber: {
       type: String,
       required: true,
     },
-    phone: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
+    mileage: {
       type: String,
       required: true,
     },
-    userType: {
-      type: String,
-      enum: ["basic", "vendor", "admin"],
-      default: "basic",
+    kilometerRun: {
+      type: Number,
+      required: true,
     },
-    profileImage: String,
-    citizenshipId: {
+    rentalRate: {
+      type: Number,
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ["availabel", "reserved"],
+      default: "availabel",
+    },
+    insuranceDetails: {
       type: String,
       required: true,
     },
-    drivingLicense: {
+    carImage: {
       type: String,
       required: true,
     },
@@ -53,4 +50,4 @@ const userSchema = mongoose.Schema(
   }
 );
 
-export const User = mongoose.model("User", userSchema);
+export const Car = mongoose.model("Car", carSchema);
