@@ -26,7 +26,6 @@ const SignupForm = () => {
       const response = await axios.post("http://localhost:3000/user/register", formData);
       setSuccessMessage(response.data.message);
       setError(null);
-      console.log(error);
     } catch (error) {
       setError(error.response.data.error);
       setSuccessMessage(null);
