@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { signAccessToken } from "../utils/jwt.utils.js";
 import JWT_TOKEN from "../models/jwttoken.model.js";
 
+
 export const registerUser = async function (req, res, next) {
   try {
     const userexists = await User.findOne({
@@ -36,6 +37,7 @@ export const registerUser = async function (req, res, next) {
 
 export const loginUser = async function (req, res, next) {
   try {
+
     //check if username exists or not
     const findUser = await User.findOne({
       email: req.body.email,
@@ -64,6 +66,8 @@ export const loginUser = async function (req, res, next) {
 
     // generate access token
     const accessToken = await signAccessToken(data);
+
+     res.cookie('accessToken', accessToken, { maxAge: 900000 });
 
     // send response
     return res.status(200).json({

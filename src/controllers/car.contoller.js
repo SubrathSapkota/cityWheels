@@ -1,49 +1,50 @@
 import { Car } from "../models/car.model.js";
 
-export const registerCar = async (req, res) => {
+export const registerCar = async function (req, res, next) {
   try {
-    const vendorId = req.params.id;
-    const {
-      brand,
-      model,
-      licensePlateNumber,
-      mileage,
-      kilometerRun,
-      insuranceDetails,
-      carImage,
-    } = req.body;
-
-    if (
-      !vendorId ||
-      !brand ||
-      !model ||
-      !licensePlateNumber ||
-      !mileage ||
-      !kilometerRun ||
-      !insuranceDetails ||
-      !carImage
-    ) {
-      return res.status(400).json({ error: "All fields are required" });
-    }
-
-    const newCar = new Car({
-      vendorId,
-      brand,
-      model,
-      licensePlateNumber,
-      mileage,
-      kilometerRun,
-      insuranceDetails,
-      carImage,
+    const carExists = await Car.findOne({
+      licensePlateNumber: req.body.licensePlateNumber,
     });
 
-    await newCar.save();
+    if (carExists) {
+      throw createError(200, "Car already exists");
+    }
 
-    res
-      .status(201)
-      .json({ message: "Car registered successfully", car: newCar });
+    const newCar = await Car.create(req.body);
+
+    return res.json({
+      success: true,
+      message: "Car registered successfully",
+      car: newCar,
+    });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Server Error" });
+    next(error);
+  }
+};
+
+
+
+export const getAllCars = async (req, res, next) => {
+  try {
+    const cars = await Car.find();
+    res.json(cars);
+    console.log('all cars');
+  } catch (error) {
+    next(error);
+    console.log(error);
+  }
+};
+
+
+//find single car details
+export const getSingleCars = async (req, res, next) => {
+  try {
+    const car = await Car.findById(req.params.id);
+    if (!car) {
+      return res.status(404).json({ message: 'Car not found' });
+    }
+    res.json(car);
+  } catch (error) {
+    next(error);
   }
 };

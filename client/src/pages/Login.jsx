@@ -30,6 +30,7 @@ const Login = ({ onLogin }) => {
       );
       if (response.status === 200) {
         console.log("Login successful");
+        
         onLogin(formData); 
       } else {
         console.error("Login failed");
