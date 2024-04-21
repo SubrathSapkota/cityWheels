@@ -67,7 +67,7 @@ export const loginUser = async function (req, res, next) {
     // generate access token
     const accessToken = await signAccessToken(data);
 
-     res.cookie('accessToken', accessToken, { maxAge: 900000 });
+    res.cookie('accessToken', accessToken, { maxAge: 900000 });
 
     // send response
     return res.status(200).json({
