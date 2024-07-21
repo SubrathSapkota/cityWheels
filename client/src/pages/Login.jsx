@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { NavLink } from "react-router-dom";
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext.jsx';
 
-const Login = ({ onLogin }) => {
+const Login = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const handleChange = (e) => {
@@ -18,25 +20,9 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/api/user/login",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (response.status === 200) {
-        console.log("Login successful");
-        
-        onLogin(formData); 
-      } else {
-        console.error("Login failed");
-      }
-    } catch (error) {
-      console.error("An error occurred:", error);
+    const success = await login(formData);
+    if (success) {
+      navigate('/');
     }
   };
 
@@ -89,7 +75,7 @@ const Login = ({ onLogin }) => {
                 Login
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-               {"Don't have an account?  "}
+                {"Don't have an account?  "}
                 <NavLink
                   to="/register"
                   className="font-medium text-primary-600 hover:underline dark:text-primary-500"

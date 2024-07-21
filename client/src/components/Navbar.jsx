@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { removeAuth } from '../auth';
 
-const Navbar = () => {
+const Navbar = ({setIsLoggedIn}) => {
+  const navigate = useNavigate()
   const [showOptions,setShowOptions]=useState(false)
+
+  const handleLogout = () => {
+    removeAuth();
+    setIsLoggedIn(false);
+    navigate("/login")
+  };
   return (
     <nav className="bg-gray-800">
   <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -20,6 +28,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+     
       <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         <div className="relative ml-3">
           <div>
@@ -36,6 +45,10 @@ const Navbar = () => {
             <NavLink to="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem"  id="user-menu-item-2">Sign out</NavLink>
           </div>
         </div>
+      </div>
+
+      <div>
+      <button className='bg-white mx-5 p-2' onClick={handleLogout}>Logout</button>
       </div>
     </div>
   </div>
