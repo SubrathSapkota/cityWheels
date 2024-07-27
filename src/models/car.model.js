@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const carSchema = mongoose.Schema(
   {
     vendorId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
     brand: {
@@ -33,8 +33,8 @@ const carSchema = mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["availabel", "reserved"],
-      default: "availabel",
+      enum: ['availabel', 'reserved'],
+      default: 'availabel',
     },
     insuranceDetails: {
       type: String,
@@ -47,7 +47,7 @@ const carSchema = mongoose.Schema(
   },
   {
     timestamp: true,
-  }
+  },
 );
 
-export const Car = mongoose.model("Car", carSchema);
+export const Car = mongoose.model('Car', carSchema);

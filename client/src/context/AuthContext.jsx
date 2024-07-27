@@ -1,14 +1,21 @@
-// AuthContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { setAuth as setAuthStorage, removeAuth  } from '../auth.js';
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [authToken, setAuthToken] = useState(localStorage.getItem('token'));
+  const [authToken, setAuthToken] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const tokenData = localStorage.getItem('gd-auth');
+    if (tokenData) {
+      setAuthToken(JSON.parse(tokenData));
+    }
+    setLoading(false);
+  }, []);
 
   const login = async (formData) => {
     try {
@@ -22,10 +29,9 @@ export const AuthProvider = ({ children }) => {
         }
       );
       if (response.status === 200) {
-        console.log('Login successful');
-        const { token } = response.data;
-        setAuthToken(token);
-        setAuthStorage(response.data);
+        const tokenData = response.data;
+        setAuthToken(tokenData);
+        localStorage.setItem('gd-auth', JSON.stringify(tokenData));
         return true;
       }
     } catch (error) {
@@ -36,11 +42,11 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setAuthToken(null);
-    removeAuth();
+    localStorage.removeItem('gd-auth');
   };
 
   return (
-    <AuthContext.Provider value={{ authToken, login, logout }}>
+    <AuthContext.Provider value={{ authToken, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

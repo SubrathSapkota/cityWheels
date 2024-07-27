@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { IoClose } from "react-icons/io5";
 import { useParams } from "react-router-dom";
 
-const SingleCar = () => {
-  const { id } = useParams();
+const SingleCar = ({ id, setToggleCard }) => {
+  // const { id } = useParams();
   const [car, setCar] = useState(null);
+  console.log(id);
 
   useEffect(() => {
     const fetchCar = async () => {
@@ -19,23 +21,23 @@ const SingleCar = () => {
     };
 
     fetchCar();
-    return () => {};
+    return () => { };
   }, [id]);
 
   if (!car) {
     return <div>Loading...</div>;
   }
 
-
   return (
-    <div className="min-w-screen min-h-screen  bg-yellow-300 flex items-center overflow-hidden relative">
-      <div className="w-full max-w-7xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+    <div className=" bg-transparent flex items-center overflow-hidden  relative">
+      <div className="z-10 absolute top-2 right-2 hover:bg-gray-200 rounded-full text-gray-600 " onClick={() => setToggleCard(false)}><IoClose size={25} /></div>
+      <div className="w-full rounded bg-white shadow-xl p-10 mx-auto text-gray-800 relative md:text-left">
         <div className="md:flex items-center -mx-10">
           <div className="w-full md:w-1/2 px-10 mb-10 md:mb-0">
             <div className="relative">
               <img
-                src="https://hips.hearstapps.com/hmg-prod/images/dw-burnett-pcoty22-8260-1671143390.jpg?crop=0.668xw:1.00xh;0.184xw,0&resize=640:*"
-                className="w-full relative z-10"
+                src={car.carImage}
+                className="w-[600px] h-[400px] relative z-10 object-cover"
                 alt="care name"
               />
               <div className="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>

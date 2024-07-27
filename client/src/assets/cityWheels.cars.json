@@ -1,0 +1,150 @@
+[{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b18e"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4a3",
+  "brand": "Toyota",
+  "model": "Corolla",
+  "licensePlateNumber": "ABC123",
+  "mileage": "15000",
+  "kilometerRun": 15000,
+  "rentalRate": 40,
+  "status": "available",
+  "insuranceDetails": "Full Coverage",
+  "carImage": "https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?format=jpg&crop=4560,2565,x790,y784,safe&width=960"
+},
+{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b18f"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4a4",
+  "brand": "Honda",
+  "model": "Civic",
+  "licensePlateNumber": "DEF456",
+  "mileage": "20000",
+  "kilometerRun": 20000,
+  "rentalRate": 50,
+  "status": "reserved",
+  "insuranceDetails": "Liability Only",
+  "carImage": "https://media.architecturaldigest.com/photos/63079fc7b4858efb76814bd2/16:9/w_4000,h_2250,c_limit/9.%20DeLorean-Alpha-5%20%5BDeLorean%5D.jpg"
+},
+{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b190"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4a5",
+  "brand": "Ford",
+  "model": "Focus",
+  "licensePlateNumber": "GHI789",
+  "mileage": "18000",
+  "kilometerRun": 18000,
+  "rentalRate": 45,
+  "status": "available",
+  "insuranceDetails": "Full Coverage",
+  "carImage": "https://hips.hearstapps.com/hmg-prod/images/honda-prelude-concept-front-three-quarters-653927960f1f4.jpg?crop=1.00xw:0.920xh;0,0.0801xh&resize=980:*"
+},
+{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b191"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4a6",
+  "brand": "Chevrolet",
+  "model": "Cruze",
+  "licensePlateNumber": "JKL012",
+  "mileage": "25000",
+  "kilometerRun": 25000,
+  "rentalRate": 55,
+  "status": "available",
+  "insuranceDetails": "Liability Only",
+  "carImage": "https://www.carandbike.com/_next/image?url=https%3A%2F%2Fc.ndtvimg.com%2F2022-01%2F0d2m0qkg_car_625x300_12_January_22.jpg&w=3840&q=75"
+},
+{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b192"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4a7",
+  "brand": "Nissan",
+  "model": "Altima",
+  "licensePlateNumber": "MNO345",
+  "mileage": "12000",
+  "kilometerRun": 12000,
+  "rentalRate": 48,
+  "status": "reserved",
+  "insuranceDetails": "Full Coverage",
+  "carImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPrd2D7UpS1kDea-RZAcbOUJCHrH7U7ZFKKA&s"
+},
+{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b193"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4a8",
+  "brand": "Hyundai",
+  "model": "Elantra",
+  "licensePlateNumber": "PQR678",
+  "mileage": "22000",
+  "kilometerRun": 22000,
+  "rentalRate": 53,
+  "status": "available",
+  "insuranceDetails": "Liability Only",
+  "carImage": "https://i.brecorder.com/primary/2021/06/60d48302d4a99.jpg"
+},
+{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b194"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4a9",
+  "brand": "Kia",
+  "model": "Optima",
+  "licensePlateNumber": "STU901",
+  "mileage": "17000",
+  "kilometerRun": 17000,
+  "rentalRate": 49,
+  "status": "available",
+  "insuranceDetails": "Full Coverage",
+  "carImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1cl7wonTSSQslTbVr5mfQC3YKxZ6hwqMrZw&s"
+},
+{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b195"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4aa",
+  "brand": "Mazda",
+  "model": "Mazda3",
+  "licensePlateNumber": "VWX234",
+  "mileage": "16000",
+  "kilometerRun": 16000,
+  "rentalRate": 47,
+  "status": "reserved",
+  "insuranceDetails": "Liability Only",
+  "carImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkx-6o22OMslWaiKQ5iAkE9XWqBwbX6sVNKg&s"
+},
+{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b196"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4ab",
+  "brand": "Subaru",
+  "model": "Impreza",
+  "licensePlateNumber": "YZA567",
+  "mileage": "21000",
+  "kilometerRun": 21000,
+  "rentalRate": 52,
+  "status": "available",
+  "insuranceDetails": "Full Coverage",
+  "carImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKkvc2dB4yiHGvFd1EmxQu_F936K6lre9pLQ&s"
+},
+{
+  "_id": {
+    "$oid": "669d2b5593e76a57be02b197"
+  },
+  "vendorId": "64cfd75e8f1a2e2a88b4e4ac",
+  "brand": "Volkswagen",
+  "model": "Jetta",
+  "licensePlateNumber": "BCD890",
+  "mileage": "19000",
+  "kilometerRun": 19000,
+  "rentalRate": 51,
+  "status": "available",
+  "insuranceDetails": "Liability Only",
+  "carImage": "https://pop.h-cdn.co/assets/cm/15/05/768x516/54cae423e713b_-_american-muscle-facts-06-0312-xln.jpg"
+}]

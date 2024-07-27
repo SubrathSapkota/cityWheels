@@ -3,4 +3,4 @@ import { createRental } from "../controllers/rental.controller.js"
 
 export const rentRouter = express.Router()
 
-rentRouter.post("/rentCar/:customerId",createRental)
+rentRouter.post("/rentCar/:carId",createRental)

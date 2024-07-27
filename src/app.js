@@ -20,6 +20,3 @@ app.listen(port, () => {
   mongoConnection();
 });
 
-
-
-

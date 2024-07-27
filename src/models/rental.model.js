@@ -1,23 +1,23 @@
 import mongoose from "mongoose";
 
-const rentalSchema = mongoose.Schema(
+const rentalSchema = new mongoose.Schema(
   {
     customer: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", 
+      ref: "User",
       required: true,
     },
     car: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Car", 
+      ref: "Car",
       required: true,
     },
     startDate: {
-      type: String,
+      type: Date,
       required: true,
     },
     endDate: {
-      type: String,
+      type: Date,
       required: true,
     },
     totalPrice: {
@@ -28,6 +28,10 @@ const rentalSchema = mongoose.Schema(
       type: String,
       enum: ["pending", "confirmed", "cancelled"],
       default: "pending",
+    },
+    isPaid: {
+      type: Boolean,
+      default: false,
     },
   },
   {
